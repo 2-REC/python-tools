@@ -36,7 +36,7 @@ import argparse
 import logging
 import os
 from concurrent.futures import ThreadPoolExecutor
-from PIL import Image
+from PIL import Image, ImageOps
 
 logging.basicConfig(
     level=logging.INFO,
@@ -73,6 +73,8 @@ def resize_image(image_path, output_dir, scale_factor, target_size, target_side)
     """Opens an image, scales it down, and saves it to the output directory."""
     try:
         with Image.open(image_path) as img:
+            img = ImageOps.exif_transpose(img)
+
             width, height = img.size
 
             new_width, new_height = calculate_new_dimensions(
