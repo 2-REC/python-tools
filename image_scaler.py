@@ -6,7 +6,7 @@ Prompt:
 "As a senior Python software developer, write a Python command line script to
 scale the size down of images (jpeg) from a folder.
 The folder containing the images is provided as an input parameter.
-The script takes the images found in the folder 1 by 1, reduce their size by a
+The script takes the images found in the folder 1 by 1, scales their size by a
 specified factor (2 by default, specifiable as parameter) in both width and height,
 and then saved them in an output directory (which is also provided as an input parameter).
 The script should log its progress while processing, to indicate which image is currently being processed.
@@ -64,8 +64,8 @@ def calculate_new_dimensions(original_width, original_height, scale_factor, targ
                 new_width = int(original_width * (new_height / original_height))
     else:
         # default to scale factor method
-        new_width = int(original_width / scale_factor)
-        new_height = int(original_height / scale_factor)
+        new_width = int(original_width * scale_factor)
+        new_height = int(original_height * scale_factor)
     
     return max(1, new_width), max(1, new_height)
 
@@ -103,7 +103,7 @@ def resize_image(image_path, output_dir, scale_factor, target_size, target_side)
 def main():
     """Main function to handle command-line arguments and manage the thread pool."""
     parser = argparse.ArgumentParser(
-        description="Scale down images in a folder, either by a factor or target pixel size."
+        description="Scale images in a folder, either by a size factor or to a target pixel size."
     )
 
     parser.add_argument("input_folder", type=str, help="Path to the folder containing input images.")
@@ -119,7 +119,7 @@ def main():
     group.add_argument("--scale_factor",
         type=float,
         default=2.0,
-        help="Scale factor to reduce size by (default: 2.0)."
+        help="Factor to scale size by (default: 2.0)."
     )
     group.add_argument(
         "--target_size",
