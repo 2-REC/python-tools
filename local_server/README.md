@@ -23,11 +23,11 @@ Steps to setup the environment:
     ```
 * Create virtual environment:
     ```
-    python -m vitualenv <ENV_NAME>
+    python -m virtualenv <ENV_NAME>
     ```
     E.g.:
     ```
-    python -m vitualenv python_http_server
+    python -m virtualenv python_http_server
     ```
 * Start virtual environment:
     ```
