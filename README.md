@@ -4,6 +4,7 @@ Various tools written in Python.
 
 * **local_server**: Run a local https server.
 * **image_scaler**: Resize images from a directory by a size factor or to a specified size (keeping aspect ratio).
+* **text_filter.py**: Filter the content of a text file according to a list of regular expressions.
 * **url_img_download**: Download images from a web page, contained in a specific element.
 
 
