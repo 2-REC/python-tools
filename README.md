@@ -2,6 +2,7 @@
 
 Various tools written in Python.
 
+* **copy_matching**: Copy files and folders matching a name while keeping original hierarchy.
 * **local_server**: Run a local https server.
 * **image_scaler**: Resize images from a directory by a size factor or to a specified size (keeping aspect ratio).
 * **text_filter.py**: Filter the content of a text file according to a list of regular expressions.
